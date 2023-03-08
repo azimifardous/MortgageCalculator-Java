@@ -19,7 +19,7 @@ public class Main {
         System.out.println();
         System.out.println("MORTGAGE");
         System.out.println("--------");
-        System.out.print("Monthly Payment: $" + mortgageFormat);
+        System.out.println("Monthly Payment: $" + mortgageFormat);
     }
 
     private static void printPaymentSchedule(int principal, float annualInterestRate, byte periodInYears) {
@@ -47,8 +47,7 @@ public class Main {
                 / (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
 
     }
-
-
+    
     public static double calculateMortgage(
             int principal,
             float annualInterestRate,
