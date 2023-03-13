@@ -1,13 +1,12 @@
 import java.text.NumberFormat;
-import java.util.Scanner;
 
 public class Main {
     final static byte MONTHS_IN_YEAR = 12;
     final static byte PERCENT = 100;
     public static void main(String[] args) {
-        int principal = (int) readNumber("Principal ($1K - $1M): ", 1000, 1000000);
-        float annualInterestRate = (float) readNumber("Annual Interest Rate: ", 1, 30);
-        byte periodInYears = (byte) readNumber("Period (Years): ", 1, 30);
+        int principal = (int) Console.readNumber("Principal ($1K - $1M): ", 1000, 1000000);
+        float annualInterestRate = (float) Console.readNumber("Annual Interest Rate: ", 1, 30);
+        byte periodInYears = (byte) Console.readNumber("Period (Years): ", 1, 30);
 
         printMortgage(principal, annualInterestRate, periodInYears);
         printPaymentSchedule(principal, annualInterestRate, periodInYears);
@@ -47,7 +46,7 @@ public class Main {
                 / (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
 
     }
-    
+
     public static double calculateMortgage(
             int principal,
             float annualInterestRate,
@@ -58,17 +57,5 @@ public class Main {
         return principal * (monthlyInterestRate *
                 Math.pow((1 + monthlyInterestRate), numberOfPayments)) /
                 (Math.pow((1 + monthlyInterestRate), numberOfPayments) - 1);
-    }
-
-    public static double readNumber(String prompt, int min, int max) {
-        Scanner sc = new Scanner(System.in);
-        double value;
-        while (true) {
-            System.out.print(prompt);
-            value = sc.nextDouble();
-            if (value >= min && value <= max) break;
-            System.out.println("Enter a number between " + min + " and " + max + ".");
-        }
-        return value;
     }
 }
