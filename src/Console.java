@@ -4,6 +4,7 @@ public class Console {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static double readNumber(String prompt) {
+        System.out.println(prompt);
         return scanner.nextDouble();
     }
     public static double readNumber(String prompt, int min, int max) {
